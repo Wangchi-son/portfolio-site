@@ -1,23 +1,23 @@
-import React, { useEffect } from 'react';
-import Button from './tools/Button';
-import './css/Home.css';
+import React, { useEffect } from "react";
+import Button from "./tools/Button";
+import "./css/Home.css";
 
-import gsap from 'gsap';
-import { Link } from 'react-router-dom';
+import gsap from "gsap";
+import { Link } from "react-router-dom";
 
 function Home() {
   useEffect(() => {
     // title 효과
-    gsap.to('#title', {
+    gsap.to("#title", {
       opacity: 1,
       duration: 1,
-      delay: 0.2
+      delay: 0.2,
     });
     // link 효과
-    gsap.to('#link', {
+    gsap.to("#link", {
       opacity: 1,
       duration: 1,
-      delay: 0.2
+      delay: 0.2,
     });
   });
 

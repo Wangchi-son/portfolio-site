@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { AiFillHome } from 'react-icons/ai';
-import './css/HomeButton.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import { AiFillHome } from "react-icons/ai";
+import "./css/HomeButton.css";
 
 function HomeButton() {
   return (
