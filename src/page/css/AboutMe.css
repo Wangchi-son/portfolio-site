@@ -1,0 +1,86 @@
+.mainContainer {
+  position: relative;
+}
+
+#navbar {
+  position: fixed;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  z-index: 1000;
+}
+
+.anchor {
+  margin: 15px;
+  color: white;
+  font-size: 70px;
+  z-index: 5000;
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.anchor:hover {
+  opacity: 1;
+  transition: all 0.4s ease-out;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  color: white;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.overX {
+  overflow-x: hidden;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  width: 300%;
+}
+
+.a {
+  background-color: black;
+}
+
+.mainTitle {
+  position: absolute;
+  left: 5%;
+  bottom: 10%;
+  font-size: 100px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  z-index: 100;
+}
+
+.profile {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45%;
+  height: 100%;
+  background-image: url('../../static//images/profile.jpg');
+  background-size: cover;
+  background-position: 50%;
+}
+
+.b {
+  background-color: blue;
+}
+
+.c {
+  background-color: yellow;
+}
+
+.nx {
+  background-color: aqua;
+}
