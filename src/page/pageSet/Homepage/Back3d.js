@@ -1,8 +1,137 @@
 import React, { Component } from "react";
+import * as THREE from "three";
+import gsap from "gsap/all";
+import { random } from "gsap/gsap-core";
 
 export class Back3d extends Component {
+  componentDidMount() {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    // raycaster
+    const raycaster = new THREE.Raycaster();
+
+    // 무대
+    const scene = new THREE.Scene();
+
+    // 카메라
+    const camera = new THREE.PerspectiveCamera(
+      75,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000
+    );
+
+    // 영사기
+    const renderer = new THREE.WebGL1Renderer();
+    renderer.setSize(width, height);
+
+    // 픽셀단위 값 조정
+    renderer.setPixelRatio(devicePixelRatio);
+
+    // HTML canvas 생성
+    this.element.appendChild(renderer.domElement);
+
+    // randomValue
+    const randomValue = [];
+
+    // 전체 배경 설정
+    function generateBackground() {
+      Background.geometry.dispose();
+      Background.geometry = new THREE.PlaneGeometry(
+        BackgroundSet.plane.width,
+        BackgroundSet.plane.height,
+        BackgroundSet.plane.widthSegments,
+        BackgroundSet.plane.heightSegments
+      );
+
+      // x,y,z 값 조정
+      const { array } = Background.geometry.attributes.position;
+      for (let i = 0; i < array.length; i++) {
+        if (i % 3 === 0) {
+          const x = array[i];
+          const y = array[i + 1];
+          const z = array[i + 2];
+
+          array[i] = x + (Math.random() - 0.5) * 3;
+          array[i + 1] = y + (Math.random() - 0.5) * 3;
+          array[i + 2] = z + (Math.random() - 0.5) * 3;
+        }
+        randomValue.push(Math.random() * Math.PI * 3);
+      }
+
+      // randomValue 정의
+      Background.geometry.attributes.position.randomValue = randomValue;
+
+      // 컬러
+      const colors = [];
+      for (let i = 0; i < Background.geometry.attributes.position.count; i++) {
+        //r,g,b
+        colors.push(0, 0, 1);
+      }
+      Background.geometry.setAttribute(
+        "color",
+        new THREE.BufferAttribute(new Float32Array(colors), 3)
+      );
+    }
+
+    // 배경 3D 물체
+    const BackgroundSet = {
+      plane: {
+        width: 800,
+        height: 800,
+        widthSegments: 100,
+        heightSegments: 100,
+      },
+    };
+    const BackgroundGeometry = new THREE.PlaneGeometry(
+      BackgroundSet.plane.width,
+      BackgroundSet.plane.height,
+      BackgroundSet.plane.widthSegments,
+      BackgroundSet.plane.heightSegments
+    );
+    const BackgroundMeterial = new THREE.MeshPhongMaterial({
+      side: THREE.DoubleSide,
+      flatShading: THREE.FlatShading,
+      vertexColors: true,
+    });
+    const Background = new THREE.Mesh(BackgroundGeometry, BackgroundMeterial);
+    scene.add(Background);
+    generateBackground();
+
+    // 빛
+    const light = new THREE.DirectionalLight(0xffffff, 1);
+    light.position.set(0.25, -0.25, 1);
+    scene.add(light);
+
+    // 카메라 셋
+    camera.position.z = 50;
+    camera.rotateX(-50);
+    camera.rotateY(-50);
+
+    // frame
+    const frame = 0;
+
+    // 외부 전달
+    this.scene = scene;
+    this.camera = camera;
+    this.renderer = renderer;
+    this.Background = Background;
+
+    this.raycaster = raycaster;
+
+    this.frame = frame;
+    this.randomValue = randomValue;
+    this.animate();
+  }
+
+  animate = () => {
+    this.renderer.render(this.scene, this.camera);
+    requestAnimationFrame(this.animate);
+  };
+
   render() {
-    return <div></div>;
+    return <div ref={(el) => (this.element = el)}></div>;
   }
 }
 
