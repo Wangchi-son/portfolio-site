@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import Button from "./Button";
 import "./css/Home.css";
 
 function Home() {
@@ -10,6 +12,10 @@ function Home() {
           <span id="title2">MY</span> &nbsp;
           <span id="title3">PORTFOLIO</span>
         </h1>
+        <Button />
+        <Link to="/main" className="link" id="link">
+          Enter
+        </Link>
       </div>
     </>
   );

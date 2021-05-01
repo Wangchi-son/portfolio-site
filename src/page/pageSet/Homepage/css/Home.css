@@ -7,6 +7,7 @@
   font-family: "NanumSquare", sans-serif;
 }
 
+/* 메인 컨테이너 */
 .container {
   position: absolute;
   top: 50%;
@@ -23,6 +24,7 @@
   overflow: hidden;
 }
 
+/* 타이틀 효과 */
 .title {
   position: fixed;
   top: 50%;
@@ -48,4 +50,33 @@
   font-weight: 200;
   letter-spacing: 8px;
   font-family: "Montserrat", sans-serif;
+}
+
+/* 버튼 효과 */
+#link {
+  position: fixed;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20%;
+  max-width: 160px;
+
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 20pt;
+  font-weight: 300;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  letter-spacing: 2px;
+  opacity: 0;
+}
+
+#link:hover {
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: 400;
+  cursor: none;
 }
