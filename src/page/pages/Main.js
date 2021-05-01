@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
+import HomeButton from "../pageSet/tools/HomeButton";
 import "./css/Main.css";
 
-import LeftSide from "./tools/Main/leftside";
-import RightSide from "./tools/Main/rightside";
+import LeftSide from "./Exfuncs/Main/leftside";
+import RightSide from "./Exfuncs/Main/rightside";
 
 function Main() {
   useEffect(() => {
@@ -13,6 +14,7 @@ function Main() {
   });
   return (
     <>
+      <HomeButton />
       <div id="mainPage">
         <div id="profileTitle">About me</div>
         <div id="profile">
