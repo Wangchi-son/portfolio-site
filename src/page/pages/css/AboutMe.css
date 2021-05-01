@@ -79,6 +79,31 @@
   opacity: 1;
 }
 
+/* 타이틀 */
+.mainTitle p {
+  color: rgba(0, 0, 0, 0);
+  -webkit-text-stroke: 3px #333333;
+  transition: all 0.8s ease-out;
+  position: absolute;
+  left: 5%;
+  bottom: 5%;
+  font-size: 150px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.move0 + #panel-2 + #panel-3 + .profile + .mainTitle p {
+  color: white;
+  -webkit-text-stroke: 0px;
+}
+
+.move1 + #panel-3 + .profile + .mainTitle p {
+  color: rgba(0, 0, 0, 0);
+  -webkit-text-stroke: 2px white;
+}
+
 /* 계산과정에서 생기는 기타 클래스들 뭉침 */
 .nothing {
   display: none;
