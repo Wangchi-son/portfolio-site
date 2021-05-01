@@ -5,6 +5,8 @@ import './css/AboutMe.css';
 import AboutmeTitle from '../pageSet/AboutMe/AboutmeTitle';
 import { ScrollEffects } from './Exfuncs/AboutMe/ScrollEffects';
 
+import HomeButton from '../pageSet/tools/HomeButton';
+
 function AboutMe() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, TextPlugin);
@@ -64,6 +66,7 @@ function AboutMe() {
   });
   return (
     <>
+      <HomeButton />
       <div className="mainContainer">
         <div id="navbar">
           <a href="#panel-1" className="anchor anc0 stateWhite1 stateBlack2">
