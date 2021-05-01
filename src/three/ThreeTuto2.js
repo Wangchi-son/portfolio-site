@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import * as THREE from "three";
-import OrbitControls from "three-orbitcontrols";
+import React, { Component } from 'react';
+import * as THREE from 'three';
+import OrbitControls from 'three-orbitcontrols';
 
-import * as dat from "dat.gui";
-import gsap from "gsap";
+import * as dat from 'dat.gui';
+import gsap from 'gsap';
 
 export class ThreeTuto2 extends Component {
   componentDidMount() {
@@ -13,7 +13,7 @@ export class ThreeTuto2 extends Component {
     this.height = height;
 
     // resize 이벤트
-    window.addEventListener("resize", () => {
+    window.addEventListener('resize', () => {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
@@ -49,21 +49,21 @@ export class ThreeTuto2 extends Component {
         width: 800,
         height: 800,
         widthSegments: 100,
-        heightSegments: 100,
-      },
+        heightSegments: 100
+      }
     };
 
     // x값 조정하는 GUI
-    gui.add(world.plane, "width", 100, 600).onChange(generatePlane);
+    gui.add(world.plane, 'width', 100, 600).onChange(generatePlane);
 
     // y값 조정하는 GUI
-    gui.add(world.plane, "height", 100, 600).onChange(generatePlane);
+    gui.add(world.plane, 'height', 100, 600).onChange(generatePlane);
 
     // x seg값 조정하는 GUI
-    gui.add(world.plane, "widthSegments", 10, 200).onChange(generatePlane);
+    gui.add(world.plane, 'widthSegments', 10, 200).onChange(generatePlane);
 
     // y seg값 조정하는 GUI
-    gui.add(world.plane, "heightSegments", 10, 200).onChange(generatePlane);
+    gui.add(world.plane, 'heightSegments', 10, 200).onChange(generatePlane);
     const randomValue = [];
 
     function generatePlane() {
@@ -99,11 +99,11 @@ export class ThreeTuto2 extends Component {
       const colors = [];
       for (let i = 0; i < planeMesh.geometry.attributes.position.count; i++) {
         // r,g,b
-        colors.push(0.05, 0.1, 0.2);
+        colors.push(0, 0, 0);
       }
 
       planeMesh.geometry.setAttribute(
-        "color",
+        'color',
         new THREE.BufferAttribute(new Float32Array(colors), 3)
       );
     }
@@ -118,7 +118,7 @@ export class ThreeTuto2 extends Component {
     const planeMeterial = new THREE.MeshPhongMaterial({
       side: THREE.DoubleSide,
       flatShading: THREE.FlatShading,
-      vertexColors: true,
+      vertexColors: true
     });
     const planeMesh = new THREE.Mesh(planeGeometry, planeMeterial);
     scene.add(planeMesh);
@@ -126,7 +126,7 @@ export class ThreeTuto2 extends Component {
 
     // 빛
     const light = new THREE.DirectionalLight(0xffffff, 1);
-    light.position.set(1, -1, 1);
+    light.position.set(0.25, -0.25, 1);
     scene.add(light);
 
     // 뒤쪽 빛
@@ -141,14 +141,13 @@ export class ThreeTuto2 extends Component {
     camera.position.z = 50;
     camera.rotateX(-50);
     camera.rotateY(-50);
-    console.log(camera);
 
     const mouse = {
       x: undefined,
-      y: undefined,
+      y: undefined
     };
 
-    window.addEventListener("mousemove", (e) => {
+    window.addEventListener('mousemove', (e) => {
       mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
       mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
     });
@@ -169,29 +168,28 @@ export class ThreeTuto2 extends Component {
     this.animate();
 
     // 클릭 옵션
-    document.querySelector("#link").addEventListener("click", (e) => {
+    document.querySelector('#link').addEventListener('click', (e) => {
       e.preventDefault();
-      gsap.to("#container", {
-        opacity: 0,
+      gsap.to('#container', {
+        opacity: 0
       });
       gsap.to(camera.position, {
         x: 75,
         y: -75,
         z: 10,
-        duration: 1.2,
+        duration: 1.2
       });
       gsap.to(camera.rotation, {
         x: 1,
         y: 1,
         duration: 1.2,
         onComplete: () => {
-          window.location =
-            "https://wangchi-son.github.io/portfolio-site/#/main";
-        },
+          window.location = 'http://localhost:3000/#/main';
+        }
       });
       gsap.to(light, {
         intensity: 0,
-        duration: 1.2,
+        duration: 1.2
       });
     });
   }
@@ -210,7 +208,7 @@ export class ThreeTuto2 extends Component {
     const {
       array,
       originalPosition,
-      randomValue,
+      randomValue
     } = this.planeMesh.geometry.attributes.position;
 
     for (let i = 0; i < array.length; i += 3) {
@@ -234,32 +232,32 @@ export class ThreeTuto2 extends Component {
       const { color } = intersects[0].object.geometry.attributes;
 
       // vertice 1
-      color.setX(intersects[0].face.a, 0.3);
+      color.setX(intersects[0].face.a, 0.6);
       color.setY(intersects[0].face.a, 0.6);
-      color.setZ(intersects[0].face.a, 1);
+      color.setZ(intersects[0].face.a, 0.6);
 
       // vertice 2
-      color.setX(intersects[0].face.b, 0.3);
+      color.setX(intersects[0].face.b, 0.6);
       color.setY(intersects[0].face.b, 0.6);
-      color.setZ(intersects[0].face.b, 1);
+      color.setZ(intersects[0].face.b, 0.6);
 
       // vertice 3
-      color.setX(intersects[0].face.c, 0.3);
+      color.setX(intersects[0].face.c, 0.6);
       color.setY(intersects[0].face.c, 0.6);
-      color.setZ(intersects[0].face.c, 1);
+      color.setZ(intersects[0].face.c, 0.6);
 
       color.needsUpdate = true;
 
       const initialColor = {
-        r: 0.05,
-        g: 0.1,
-        b: 0.2,
+        r: 0,
+        g: 0,
+        b: 0
       };
 
       const hoverColor = {
-        r: 0.3,
+        r: 0.6,
         g: 0.6,
-        b: 1,
+        b: 0.6
       };
       gsap.to(hoverColor, {
         r: initialColor.r,
@@ -281,7 +279,7 @@ export class ThreeTuto2 extends Component {
           color.setX(intersects[0].face.c, hoverColor.r);
           color.setY(intersects[0].face.c, hoverColor.g);
           color.setZ(intersects[0].face.c, hoverColor.b);
-        },
+        }
       });
     }
   };
