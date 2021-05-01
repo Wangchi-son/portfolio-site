@@ -118,9 +118,10 @@ export class Back3d extends Component {
       x: undefined,
       y: undefined,
     };
+
     window.addEventListener("mousemove", (e) => {
       mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
-      mouse.y = (e.clientY / window.innerHeight) * 2 + 1;
+      mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
     });
 
     // frame
@@ -163,6 +164,65 @@ export class Back3d extends Component {
         originalPosition[i + 1] +
         Math.sin(this.frame + randomValue[i + 1]) * 0.02;
       this.Background.geometry.attributes.position.needsUpdate = true;
+    }
+
+    // 마우스 오버 효과
+    this.raycaster.setFromCamera(this.mouse, this.camera);
+    const intersects = this.raycaster.intersectObject(this.Background);
+    if (intersects.length > 0) {
+      const { color } = intersects[0].object.geometry.attributes;
+
+      // vertice 1
+      color.setX(intersects[0].face.a, 0.6);
+      color.setY(intersects[0].face.a, 0.6);
+      color.setZ(intersects[0].face.a, 0.6);
+
+      // vertice 2
+      color.setX(intersects[0].face.b, 0.6);
+      color.setY(intersects[0].face.b, 0.6);
+      color.setZ(intersects[0].face.b, 0.6);
+
+      // vertice 3
+      color.setX(intersects[0].face.c, 0.6);
+      color.setY(intersects[0].face.c, 0.6);
+      color.setZ(intersects[0].face.c, 0.6);
+
+      color.needsUpdate = true;
+
+      const initialColor = {
+        r: 0,
+        g: 0,
+        b: 0,
+      };
+
+      const hoverColor = {
+        r: 0.6,
+        g: 0.6,
+        b: 0.6,
+      };
+
+      gsap.to(hoverColor, {
+        r: initialColor.r,
+        g: initialColor.g,
+        b: initialColor.b,
+        duration: 1,
+        onUpdate: () => {
+          // vertice 1
+          color.setX(intersects[0].face.a, hoverColor.r);
+          color.setY(intersects[0].face.a, hoverColor.g);
+          color.setZ(intersects[0].face.a, hoverColor.b);
+
+          // vertice 2
+          color.setX(intersects[0].face.b, hoverColor.r);
+          color.setY(intersects[0].face.b, hoverColor.g);
+          color.setZ(intersects[0].face.b, hoverColor.b);
+
+          // vertice 3
+          color.setX(intersects[0].face.c, hoverColor.r);
+          color.setY(intersects[0].face.c, hoverColor.g);
+          color.setZ(intersects[0].face.c, hoverColor.b);
+        },
+      });
     }
   };
 
