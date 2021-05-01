@@ -71,7 +71,7 @@ export class Back3d extends Component {
       const colors = [];
       for (let i = 0; i < Background.geometry.attributes.position.count; i++) {
         //r,g,b
-        colors.push(0, 0, 1);
+        colors.push(0, 0, 0);
       }
       Background.geometry.setAttribute(
         "color",
@@ -145,7 +145,7 @@ export class Back3d extends Component {
     requestAnimationFrame(this.animate);
 
     // 배경 움직임
-    this.frame += 0.01;
+    this.frame += 0.02;
     const {
       array,
       originalPosition,
@@ -155,13 +155,13 @@ export class Back3d extends Component {
     for (let i = 0; i < array.length; i += 3) {
       // x
       array[i] =
-        originalPosition[i] + Math.cos(this.frame + randomValue[i]) * 0.01;
+        originalPosition[i] + Math.cos(this.frame + randomValue[i]) * 0.02;
       this.Background.geometry.attributes.position.needsUpdate = true;
 
       // y
       array[i + 1] =
         originalPosition[i + 1] +
-        Math.sin(this.frame + randomValue[i + 1]) * 0.01;
+        Math.sin(this.frame + randomValue[i + 1]) * 0.02;
       this.Background.geometry.attributes.position.needsUpdate = true;
     }
   };
