@@ -63,6 +63,10 @@ export class Back3d extends Component {
       // randomValue 정의
       Background.geometry.attributes.position.randomValue = randomValue;
 
+      // OriginalPosition 정의
+      Background.geometry.attributes.position.originalPosition =
+        Background.geometry.attributes.position.array;
+
       // 컬러
       const colors = [];
       for (let i = 0; i < Background.geometry.attributes.position.count; i++) {
@@ -109,6 +113,16 @@ export class Back3d extends Component {
     camera.rotateX(-50);
     camera.rotateY(-50);
 
+    // 마우스 셋
+    const mouse = {
+      x: undefined,
+      y: undefined,
+    };
+    window.addEventListener("mousemove", (e) => {
+      mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+      mouse.y = (e.clientY / window.innerHeight) * 2 + 1;
+    });
+
     // frame
     const frame = 0;
 
@@ -119,6 +133,7 @@ export class Back3d extends Component {
     this.Background = Background;
 
     this.raycaster = raycaster;
+    this.mouse = mouse;
 
     this.frame = frame;
     this.randomValue = randomValue;
