@@ -143,6 +143,27 @@ export class Back3d extends Component {
   animate = () => {
     this.renderer.render(this.scene, this.camera);
     requestAnimationFrame(this.animate);
+
+    // 배경 움직임
+    this.frame += 0.01;
+    const {
+      array,
+      originalPosition,
+      randomValue,
+    } = this.Background.geometry.attributes.position;
+
+    for (let i = 0; i < array.length; i += 3) {
+      // x
+      array[i] =
+        originalPosition[i] + Math.cos(this.frame + randomValue[i]) * 0.01;
+      this.Background.geometry.attributes.position.needsUpdate = true;
+
+      // y
+      array[i + 1] =
+        originalPosition[i + 1] +
+        Math.sin(this.frame + randomValue[i + 1]) * 0.01;
+      this.Background.geometry.attributes.position.needsUpdate = true;
+    }
   };
 
   render() {
