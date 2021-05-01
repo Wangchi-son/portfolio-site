@@ -33,7 +33,8 @@ export default function RightSide() {
       delay: 0.6,
       duration: 1.4,
       onComplete: () => {
-        window.location = "http://localhost:3000/#/mywork";
+        // myworks 링크
+        window.location = "http://localhost:3000/#/myworks";
       },
     });
     gsap.to("#profile", {
@@ -71,7 +72,8 @@ export default function RightSide() {
       delay: 0.6,
       duration: 1.4,
       onComplete: () => {
-        window.location = "http://localhost:3000/#/mywork";
+        // myworks 링크
+        window.location = "http://localhost:3000/#/myworks";
       },
     });
     gsap.to("#profile", {

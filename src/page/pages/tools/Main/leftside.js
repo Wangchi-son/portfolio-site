@@ -33,6 +33,7 @@ export default function LeftSide() {
       delay: 0.6,
       duration: 1.4,
       onComplete: () => {
+        // aboutme 링크
         window.location = "http://localhost:3000/#/aboutme";
       },
     });
@@ -67,6 +68,7 @@ export default function LeftSide() {
       delay: 0.6,
       duration: 1.4,
       onComplete: () => {
+        // aboutme 링크
         window.location = "http://localhost:3000/#/aboutme";
       },
     });
