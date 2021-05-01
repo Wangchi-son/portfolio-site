@@ -68,11 +68,18 @@ function Home() {
       opacity: 1,
       display: "block",
       duration: 1,
+      delay: 3.8,
+    });
+    gsap.to(".disappearBg", {
+      opacity: 0,
+      delay: 1.8,
+      duration: 2,
     });
   });
   return (
     <>
       <div className="container" id="container">
+        <div className="disappearBg"></div>
         <h1 className="title" id="title">
           <span id="title1">WELCOME</span> &nbsp;
           <span id="title2">MY</span> &nbsp;
