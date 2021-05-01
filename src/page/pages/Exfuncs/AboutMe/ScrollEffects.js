@@ -4,7 +4,7 @@ export function ScrollEffects(aboutMePanels, maxWidth) {
   const titleList = [
     "I'm a<br />Frontend<br /> Web Developer",
     'Introduce <br/> My self',
-    'Motivation'
+    'I Want To Be...'
   ];
   aboutMePanels.forEach((panel, i) => {
     ScrollTrigger.create({
