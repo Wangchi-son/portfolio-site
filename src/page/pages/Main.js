@@ -1,8 +1,16 @@
 import React, { useEffect } from "react";
 import "./css/Main.css";
 
+import LeftSide from "./tools/Main/leftside";
+import RightSide from "./tools/Main/rightside";
+
 function Main() {
-  useEffect(() => {});
+  useEffect(() => {
+    // left side
+    LeftSide();
+    // right side
+    RightSide();
+  });
   return (
     <>
       <div id="mainPage">

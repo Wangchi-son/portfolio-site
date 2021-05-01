@@ -16,6 +16,35 @@
   cursor: pointer;
 }
 
+/* left side */
+#profile {
+  position: absolute;
+  top: 0;
+  left: -25%;
+  width: 75%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  opacity: 0;
+  overflow: hidden;
+}
+
+.background-image1 {
+  position: absolute;
+  top: 0;
+  right: -25%;
+  bottom: 0;
+  transform: skewX(15deg);
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: 50%;
+  background-image: url(../../../static/images/studyBook.jpg);
+}
+
+/* 링크 버튼 */
 #profileTitle {
   display: flex;
   justify-content: center;
@@ -43,6 +72,40 @@
   transition: all 0.4s ease-out;
 }
 
+/* right side */
+
+#myWork {
+  position: absolute;
+  top: 0;
+  right: -25%;
+  width: 75%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  opacity: 0;
+  overflow: hidden;
+}
+
+#myWork:hover {
+  opacity: 1;
+}
+
+.background-image2 {
+  position: absolute;
+  top: 0;
+  left: -25%;
+  bottom: 0;
+  transform: skewX(15deg);
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: 50%;
+  background-image: url(../../../static/images/cording1.jpg);
+}
+
+/* 링크 버튼 */
 #myWorkTitle {
   display: flex;
   justify-content: center;
