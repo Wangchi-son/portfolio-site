@@ -30,6 +30,16 @@
 
 /* panel 옵션 */
 
+.overX {
+  overflow-x: hidden;
+  background-color: black;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  width: 300%;
+}
+
 .full {
   display: flex;
   justify-content: center;
@@ -42,12 +52,6 @@
   font-weight: 600;
 }
 
-.a {
-  background-color: red;
-}
-.b {
-  background-color: blue;
-}
-.c {
-  background-color: yellow;
+.bgWhite {
+  background-color: white;
 }
