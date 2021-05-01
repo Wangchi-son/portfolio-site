@@ -113,27 +113,30 @@ function AboutMe() {
     });
   });
   return (
-    <div className="mainContainer">
-      <div id="navbar">
-        <a href="#panel-1" className="anchor anc0 stateWhite1 stateBlack2">
-          &sdot;
-        </a>
-        <a href="#panel-2" className="anchor anc1 stateWhite1 stateBlack2">
-          &sdot;
-        </a>
-        <a href="#panel-3" className="anchor anc2 stateWhite1 stateBlack2">
-          &sdot;
-        </a>
-      </div>
-      <div className="overX">
-        <div className="row">
-          <div className="full aboutMePanel" id="panel-1"></div>
-          <div className="full aboutMePanel" id="panel-2"></div>
-          <div className="full bgWhite aboutMePanel " id="panel-3"></div>
+    <>
+      <div className="mainContainer">
+        <div id="navbar">
+          <a href="#panel-1" className="anchor anc0 stateWhite1 stateBlack2">
+            &sdot;
+          </a>
+          <a href="#panel-2" className="anchor anc1 stateWhite1 stateBlack2">
+            &sdot;
+          </a>
+          <a href="#panel-3" className="anchor anc2 stateWhite1 stateBlack2">
+            &sdot;
+          </a>
         </div>
+        <div className="overX">
+          <div className="row">
+            <div className="full aboutMePanel" id="panel-1"></div>
+            <div className="full aboutMePanel" id="panel-2"></div>
+            <div className="full bgWhite aboutMePanel " id="panel-3"></div>
+            <div className="profile"></div>
+          </div>
+        </div>
+        <div className="stateWhite0 stateWhite2 stateBlack0 stateBlack1 lightOut0 lightOut2 nothing"></div>
       </div>
-      <div className="stateWhite0 stateWhite2 stateBlack0 stateBlack1 lightOut0 lightOut2 nothing"></div>
-    </div>
+    </>
   );
 }
 

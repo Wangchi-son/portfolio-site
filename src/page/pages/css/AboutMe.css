@@ -56,6 +56,30 @@
   background-color: white;
 }
 
+/* 프로필 사진 */
+.profile {
+  position: absolute;
+  top: 0;
+  right: 55%;
+  transition: all 0.8s ease-out;
+  opacity: 0;
+  width: 45%;
+  height: 100%;
+  background-image: url('../../../static/images/profile.jpg');
+  background-size: cover;
+  background-position: 50%;
+  pointer-events: none;
+}
+
+.move0 + #panel-2 + #panel-3 + .profile {
+  opacity: 1;
+  right: 0%;
+}
+.move1 + #panel-3 + .profile {
+  opacity: 1;
+}
+
+/* 계산과정에서 생기는 기타 클래스들 뭉침 */
 .nothing {
   display: none;
 }
