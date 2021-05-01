@@ -1,12 +1,18 @@
-import React, { Component } from "react";
-import * as THREE from "three";
-import gsap from "gsap/all";
-import { random } from "gsap/gsap-core";
+import React, { Component } from 'react';
+import * as THREE from 'three';
+import gsap from 'gsap/all';
+import { random } from 'gsap/gsap-core';
 
 export class Back3d extends Component {
   componentDidMount() {
     const width = window.innerWidth;
     const height = window.innerHeight;
+    // resize 이벤트
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
 
     // raycaster
     const raycaster = new THREE.Raycaster();
@@ -74,7 +80,7 @@ export class Back3d extends Component {
         colors.push(0, 0, 0);
       }
       Background.geometry.setAttribute(
-        "color",
+        'color',
         new THREE.BufferAttribute(new Float32Array(colors), 3)
       );
     }
@@ -85,8 +91,8 @@ export class Back3d extends Component {
         width: 800,
         height: 800,
         widthSegments: 100,
-        heightSegments: 100,
-      },
+        heightSegments: 100
+      }
     };
     const BackgroundGeometry = new THREE.PlaneGeometry(
       BackgroundSet.plane.width,
@@ -97,7 +103,7 @@ export class Back3d extends Component {
     const BackgroundMeterial = new THREE.MeshPhongMaterial({
       side: THREE.DoubleSide,
       flatShading: THREE.FlatShading,
-      vertexColors: true,
+      vertexColors: true
     });
     const Background = new THREE.Mesh(BackgroundGeometry, BackgroundMeterial);
     scene.add(Background);
@@ -116,10 +122,10 @@ export class Back3d extends Component {
     // 마우스 셋
     const mouse = {
       x: undefined,
-      y: undefined,
+      y: undefined
     };
 
-    window.addEventListener("mousemove", (e) => {
+    window.addEventListener('mousemove', (e) => {
       mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
       mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
     });
@@ -150,7 +156,7 @@ export class Back3d extends Component {
     const {
       array,
       originalPosition,
-      randomValue,
+      randomValue
     } = this.Background.geometry.attributes.position;
 
     for (let i = 0; i < array.length; i += 3) {
@@ -192,13 +198,13 @@ export class Back3d extends Component {
       const initialColor = {
         r: 0,
         g: 0,
-        b: 0,
+        b: 0
       };
 
       const hoverColor = {
         r: 0.6,
         g: 0.6,
-        b: 0.6,
+        b: 0.6
       };
 
       gsap.to(hoverColor, {
@@ -221,7 +227,7 @@ export class Back3d extends Component {
           color.setX(intersects[0].face.c, hoverColor.r);
           color.setY(intersects[0].face.c, hoverColor.g);
           color.setZ(intersects[0].face.c, hoverColor.b);
-        },
+        }
       });
     }
   };
