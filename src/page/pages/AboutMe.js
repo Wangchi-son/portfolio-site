@@ -91,6 +91,7 @@ function AboutMe() {
                 Web Developer
               </p>
             </h1>
+            <AboutmeTitle />
           </div>
         </div>
         <div className="stateWhite0 stateWhite2 stateBlack0 stateBlack1 lightOut0 lightOut2 nothing"></div>

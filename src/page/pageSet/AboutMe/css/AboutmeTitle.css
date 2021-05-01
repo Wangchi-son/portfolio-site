@@ -1,0 +1,26 @@
+#introBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(0%, -50%);
+
+  display: block;
+  flex-direction: column;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease-out;
+}
+.introduce {
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 46px;
+  color: #ffffff;
+}
+span {
+  font-weight: 300;
+}
+
+.move1 + #panel-3 + .profile + .mainTitle + #introBox {
+  opacity: 1;
+}
