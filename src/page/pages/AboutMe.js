@@ -1,19 +1,19 @@
-import gsap, { ScrollTrigger, ScrollToPlugin } from "gsap/all";
-import React, { useEffect } from "react";
-import "./css/AboutMe.css";
+import gsap, { ScrollTrigger, ScrollToPlugin } from 'gsap/all';
+import React, { useEffect } from 'react';
+import './css/AboutMe.css';
 
 function AboutMe() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
     // anchor 옵션
-    const panelsContainer = document.querySelector(".row");
+    const panelsContainer = document.querySelector('.row');
 
-    document.querySelectorAll(".anchor").forEach((anc, i) => {
-      anc.addEventListener("click", (e) => {
+    document.querySelectorAll('.anchor').forEach((anc, i) => {
+      anc.addEventListener('click', (e) => {
         e.preventDefault();
         const targetElem = document.querySelector(
-          e.target.getAttribute("href")
+          e.target.getAttribute('href')
         );
         if (
           targetElem &&
@@ -22,16 +22,16 @@ function AboutMe() {
           gsap.to(window, {
             scrollTo: {
               y: targetElem.offsetLeft + (targetElem.offsetWidth / 2) * i,
-              autoKill: false,
+              autoKill: false
             },
-            duration: 1,
+            duration: 1
           });
         }
       });
     });
 
     // 패널 옵션
-    const aboutMePanels = gsap.utils.toArray(".aboutMePanel");
+    const aboutMePanels = gsap.utils.toArray('.aboutMePanel');
     let maxWidth = 0;
 
     const getMaxWidth = () => {
@@ -44,17 +44,17 @@ function AboutMe() {
 
     gsap.to(aboutMePanels, {
       xPercent: -100 * (aboutMePanels.length - 1),
-      ease: "none",
+      ease: 'none',
       scrollTrigger: {
-        trigger: ".overX",
+        trigger: '.overX',
         pin: true,
         scrub: 1,
         snap: 1 / (aboutMePanels.length - 1),
         end: () => `+=${maxWidth}`,
-        invalidateOnRefresh: true,
-      },
+        invalidateOnRefresh: true
+      }
     });
-    ScrollTrigger.addEventListener("refreshInit", getMaxWidth);
+    ScrollTrigger.addEventListener('refreshInit', getMaxWidth);
   });
   return (
     <div className="mainContainer">
