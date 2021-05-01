@@ -1,4 +1,4 @@
-import gsap, { ScrollTrigger } from 'gsap/all';
+import gsap, { ScrollTrigger, TextPlugin } from 'gsap/all';
 
 export function ScrollEffects(aboutMePanels, maxWidth) {
   const titleList = [

@@ -1,4 +1,4 @@
-import gsap, { ScrollTrigger, ScrollToPlugin } from 'gsap/all';
+import gsap, { ScrollTrigger, ScrollToPlugin, TextPlugin } from 'gsap/all';
 import React, { useEffect } from 'react';
 import './css/AboutMe.css';
 
@@ -7,7 +7,7 @@ import { ScrollEffects } from './Exfuncs/AboutMe/ScrollEffects';
 
 function AboutMe() {
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, TextPlugin);
 
     // anchor 옵션
     const panelsContainer = document.querySelector('.row');
