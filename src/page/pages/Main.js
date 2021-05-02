@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-import HomeButton from "../pageSet/tools/HomeButton";
-import "./css/Main.css";
+import React, { useEffect } from 'react';
+import HomeButton from '../pageSet/tools/HomeButton';
+import './css/Main.css';
 
-import LeftSide from "./Exfuncs/Main/leftside";
-import RightSide from "./Exfuncs/Main/rightside";
+import LeftSide from './Exfuncs/Main/leftside';
+import RightSide from './Exfuncs/Main/rightside';
 
 function Main() {
   useEffect(() => {
