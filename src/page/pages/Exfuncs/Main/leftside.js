@@ -46,7 +46,8 @@ export default function LeftSide() {
         duration: 1.4,
         onComplete: () => {
           // aboutme 링크
-          window.location = 'http://localhost:3000/#/aboutme';
+          window.location =
+            'https://wangchi-son.github.io/portfolio-site/#/aboutme';
         }
       });
       gsap.to('#myWork', {
@@ -62,7 +63,8 @@ export default function LeftSide() {
         duration: 1.4,
         onComplete: () => {
           // aboutme 링크
-          window.location = 'http://localhost:3000/#/aboutme';
+          window.location =
+            'https://wangchi-son.github.io/portfolio-site/#/aboutme';
         }
       });
       gsap.to('#myWork', {
@@ -98,7 +100,8 @@ export default function LeftSide() {
       duration: 1.4,
       onComplete: () => {
         // aboutme 링크
-        window.location = 'http://localhost:3000/#/aboutme';
+        window.location =
+          'https://wangchi-son.github.io/portfolio-site/#/aboutme';
       }
     });
     gsap.to('#myWork', {

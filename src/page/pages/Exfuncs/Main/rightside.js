@@ -1,17 +1,17 @@
 import gsap from 'gsap/all';
 
 export default function RightSide() {
+  gsap.to('#myWork', {
+    opacity: 0.3,
+    duration: 1
+  });
   window.addEventListener('load', (e) => {
     if (e.currentTarget.innerWidth <= 768) {
       gsap.to('#myWork', {
-        opacity: 0.3,
-        duration: 1,
         skewX: 0
       });
     } else if (e.currentTarget.innerWidth > 768) {
       gsap.to('#myWork', {
-        opacity: 0.3,
-        duration: 1,
         skewX: -15
       });
     }
@@ -45,7 +45,8 @@ export default function RightSide() {
         duration: 1.4,
         onComplete: () => {
           // myworks 링크
-          window.location = 'http://localhost:3000/#/myworks';
+          window.location =
+            'https://wangchi-son.github.io/portfolio-site/#/myworks';
         }
       });
       gsap.to('#profile', {
@@ -61,7 +62,8 @@ export default function RightSide() {
         duration: 1.4,
         onComplete: () => {
           // myworks 링크
-          window.location = 'http://localhost:3000/#/myworks';
+          window.location =
+            'https://wangchi-son.github.io/portfolio-site/#/myworks';
         }
       });
       gsap.to('#profile', {
@@ -101,7 +103,8 @@ export default function RightSide() {
       duration: 1.4,
       onComplete: () => {
         // myworks 링크
-        window.location = 'http://localhost:3000/#/myworks';
+        window.location =
+          'https://wangchi-son.github.io/portfolio-site/#/myworks';
       }
     });
     gsap.to('#profile', {

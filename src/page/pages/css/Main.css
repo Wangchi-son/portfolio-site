@@ -6,6 +6,7 @@
   height: 100%;
   transform: translate(-50%, -50%);
   background: black;
+  z-index: 0;
   color: white;
 
   display: flex;
@@ -27,7 +28,7 @@
   justify-content: flex-start;
   align-items: flex-start;
 
-  opacity: 0;
+  opacity: 0.3;
   overflow: hidden;
 }
 
@@ -84,7 +85,7 @@
   justify-content: flex-start;
   align-items: flex-start;
 
-  opacity: 0;
+  opacity: 0.3;
   overflow: hidden;
 }
 
@@ -149,7 +150,9 @@
     transform: skew(0deg);
   }
   #profileTitle {
-    font-size: 5vw;
+    top: 25%;
+    left: 50%;
+    font-size: 8vw;
   }
 
   #myWork {
@@ -164,7 +167,9 @@
     transform: skew(0deg);
   }
   #myWorkTitle {
-    font-size: 5vw;
+    top: 75%;
+    left: 50%;
+    font-size: 8vw;
   }
 }
 @media screen and (max-width: 480px) {
