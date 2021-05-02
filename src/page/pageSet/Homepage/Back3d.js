@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import * as THREE from 'three';
 import gsap from 'gsap/all';
-import { random } from 'gsap/gsap-core';
 
 export class Back3d extends Component {
   componentDidMount() {

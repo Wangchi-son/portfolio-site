@@ -1,81 +1,92 @@
-import gsap, { TextPlugin } from "gsap/all";
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
-import Button from "./Button";
-import "./css/Home.css";
+import gsap, { TextPlugin } from 'gsap/all';
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import Button from './Button';
+import './css/Home.css';
 
 function Home() {
   useEffect(() => {
     gsap.registerPlugin(TextPlugin);
     // title 효과
-    gsap.to("#title", {
+    gsap.to('#title', {
       opacity: 1,
       duration: 1,
-      delay: 0.2,
+      delay: 0.2
     });
     for (let i = 1; i < 4; i++) {
       gsap.set(`#title${i}`, {
         y: 500,
-        opacity: 0,
+        opacity: 0
       });
     }
-    gsap.to("#title1", {
+    gsap.to('#title1', {
       delay: 0,
       duration: 1,
-      ease: "expo.out",
+      ease: 'expo.out',
       y: 0,
-      opacity: 1,
+      opacity: 1
     });
-    gsap.to("#title1", {
-      text: "",
+    gsap.to('#title1', {
+      text: '',
       delay: 3.8,
       duration: 1,
-      opacity: 0,
+      opacity: 0
     });
-    gsap.to("#title2", {
+    gsap.to('#title2', {
       delay: 0.4,
       duration: 1,
-      ease: "expo.out",
+      ease: 'expo.out',
       y: 0,
-      opacity: 1,
+      opacity: 1
     });
-    gsap.to("#title2", {
+    gsap.to('#title2', {
       text: "WONJAE'S PORTFOLIO",
-      letterSpacing: "14px",
-      fontWeight: "500",
+      letterSpacing: '200%',
+      fontWeight: '500',
       delay: 3.8,
       duration: 1,
+      display: 'flex'
     });
-    gsap.to("#title3", {
+    gsap.to('#title3', {
       delay: 0.8,
       duration: 1,
-      ease: "expo.out",
+      ease: 'expo.out',
       y: 0,
-      opacity: 1,
+      opacity: 1
     });
-    gsap.to("#title3", {
-      text: "",
+    gsap.to('#title3', {
+      text: '',
       delay: 3.8,
       duration: 1,
-      opacity: 0,
+      opacity: 0
     });
     // link 효과
-    gsap.set("#link", {
+    gsap.set('#link', {
       opacity: 0,
-      display: "none",
+      display: 'none'
     });
-    gsap.to("#link", {
+    gsap.to('#link', {
       opacity: 1,
-      display: "block",
+      display: 'block',
       duration: 1,
-      delay: 3.8,
+      delay: 3.8
     });
-    gsap.to(".disappearBg", {
+    gsap.to('.disappearBg', {
       opacity: 0,
       delay: 1.8,
-      duration: 2,
+      duration: 2
     });
   });
+
+  const mql = window.matchMedia('screen and (max-width: 768px)');
+  mql.addEventListener('resize', (e) => {
+    if (e.matches) {
+      console.log('모바일 화면 입니다.');
+    } else {
+      console.log('데스크탑 화면 입니다.');
+    }
+  });
+
   return (
     <>
       <div className="container" id="container">
